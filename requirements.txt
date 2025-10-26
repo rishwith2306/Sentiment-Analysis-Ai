@@ -1,0 +1,13 @@
+crewai
+python-dotenv
+crewai_tools
+groq
+langchain-groq
+langchain-community
+litellm
+streamlit
+pysqlite3-binary
+fastapi
+uvicorn[standard]
+python-multipart
+aiofiles

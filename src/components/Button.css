@@ -1,0 +1,130 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Size variants */
+.btn--sm {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    border-radius: var(--radius-xl);
+}
+
+.btn--md {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border-radius: var(--radius-xl);
+}
+
+.btn--lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+    border-radius: var(--radius-2xl);
+}
+
+/* Full width */
+.btn--full {
+    width: 100%;
+}
+
+/* Primary variant - Peach gradient */
+.btn--primary {
+    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-orange) 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(255, 139, 123, 0.3);
+}
+
+.btn--primary:hover:not(:disabled) {
+    box-shadow: 0 8px 24px rgba(255, 139, 123, 0.4);
+}
+
+.btn--primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-coral) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn--primary:hover:not(:disabled)::before {
+    opacity: 1;
+}
+
+/* Secondary variant - Lavender gradient */
+.btn--secondary {
+    background: linear-gradient(135deg, var(--color-lavender) 0%, var(--color-purple) 100%);
+    color: var(--text-primary);
+    box-shadow: 0 4px 16px rgba(199, 184, 255, 0.3);
+}
+
+.btn--secondary:hover:not(:disabled) {
+    box-shadow: 0 8px 24px rgba(199, 184, 255, 0.4);
+}
+
+/* Outline variant */
+.btn--outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--color-orange);
+}
+
+.btn--outline:hover:not(:disabled) {
+    background: rgba(255, 139, 123, 0.1);
+}
+
+/* Ghost variant */
+.btn--ghost {
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--text-primary);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn--ghost:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Button content */
+.btn__icon,
+.btn__text {
+    position: relative;
+    z-index: 1;
+}
+
+.btn__icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .btn--lg {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .btn--md {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.9375rem;
+    }
+}

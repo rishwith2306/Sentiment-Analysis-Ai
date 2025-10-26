@@ -1,0 +1,249 @@
+.analysis-modal__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+}
+
+.analysis-modal__wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-orange) rgba(255, 255, 255, 0.2);
+}
+
+.analysis-modal__wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.analysis-modal__wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.analysis-modal__wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-orange);
+    border-radius: 10px;
+}
+
+.analysis-modal {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.analysis-modal__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.analysis-modal__close:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: rotate(90deg);
+}
+
+/* Header */
+.analysis-modal__header {
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.analysis-modal__title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+}
+
+.analysis-modal__subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Sections */
+.analysis-modal__section {
+    margin-bottom: 3rem;
+}
+
+.analysis-modal__section:last-of-type {
+    margin-bottom: 2rem;
+}
+
+.analysis-modal__section-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 1.5rem;
+}
+
+/* Mood Section */
+.analysis-modal__mood {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-xl);
+}
+
+.analysis-modal__mood-description {
+    text-align: center;
+    max-width: 500px;
+}
+
+.analysis-modal__mood-description p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.analysis-modal__mood-description strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Themes Section */
+.analysis-modal__themes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Insights Section */
+.analysis-modal__insights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.analysis-modal__insight {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+}
+
+.analysis-modal__insight:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: translateX(4px);
+}
+
+.analysis-modal__insight-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.analysis-modal__insight-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Actions */
+.analysis-modal__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .analysis-modal__wrapper {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .analysis-modal__title {
+        font-size: 2rem;
+    }
+    
+    .analysis-modal__section-title {
+        font-size: 1.25rem;
+    }
+    
+    .analysis-modal__mood {
+        padding: 1.5rem;
+    }
+    
+    .analysis-modal__mood-description p {
+        font-size: 0.9375rem;
+    }
+    
+    .analysis-modal__actions {
+        flex-direction: column;
+    }
+    
+    .analysis-modal__actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .analysis-modal__close {
+        top: 1rem;
+        right: 1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.125rem;
+    }
+    
+    .analysis-modal__title {
+        font-size: 1.75rem;
+        padding-right: 2rem;
+    }
+    
+    .analysis-modal__insight {
+        padding: 1rem;
+    }
+    
+    .analysis-modal__insight-text {
+        font-size: 0.9375rem;
+    }
+}

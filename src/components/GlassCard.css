@@ -1,0 +1,72 @@
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Padding variants */
+.glass-card--padding-sm {
+    padding: var(--spacing-md);
+}
+
+.glass-card--padding-md {
+    padding: var(--spacing-lg);
+}
+
+.glass-card--padding-lg {
+    padding: var(--spacing-xl);
+}
+
+.glass-card--padding-xl {
+    padding: var(--spacing-2xl);
+}
+
+/* Hover effect */
+.glass-card--hover {
+    cursor: pointer;
+}
+
+.glass-card--hover:hover {
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: var(--glass-shadow-large);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Inner glow effect on hover */
+.glass-card--hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 180, 162, 0.1) 0%, rgba(199, 184, 255, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.glass-card--hover:hover::before {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .glass-card {
+        border-radius: var(--radius-xl);
+    }
+    
+    .glass-card--padding-lg {
+        padding: var(--spacing-lg);
+    }
+    
+    .glass-card--padding-xl {
+        padding: var(--spacing-xl);
+    }
+}

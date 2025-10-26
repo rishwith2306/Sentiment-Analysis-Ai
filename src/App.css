@@ -1,0 +1,173 @@
+/* Design System Variables - EchoJournal Style */
+:root {
+    /* Primary Colors */
+    --color-peach: #FFB4A2;
+    --color-orange: #FF8B7B;
+    --color-coral: #E87461;
+    
+    /* Secondary Colors */
+    --color-lavender: #E5DEFF;
+    --color-purple: #C7B8FF;
+    --color-violet: #A89FD9;
+    
+    /* Background */
+    --bg-cream: #FFF8F3;
+    --bg-white: #FFFFFF;
+    --bg-light-peach: #FFF5F1;
+    --bg-light-lavender: #F8F6FF;
+    
+    /* Text */
+    --text-primary: #2D2D2D;
+    --text-secondary: #5A5A5A;
+    --text-muted: #999999;
+    --text-light: #B8B8B8;
+    
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --glass-shadow-large: 0 16px 64px rgba(0, 0, 0, 0.12);
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 2.5rem;
+    --spacing-3xl: 3rem;
+    --spacing-4xl: 4rem;
+    
+    /* Radius */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-2xl: 2rem;
+    --radius-3xl: 2.25rem;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* App Container with Gradient Background */
+.app {
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(180deg, #FFF8F3 0%, #FFF5F1 50%, #F8F6FF 100%);
+    overflow-x: hidden;
+}
+
+/* Floating gradient orbs for ambiance */
+.app::before,
+.app::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+    animation: float 20s ease-in-out infinite;
+}
+
+.app::before {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 180, 162, 0.5) 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+}
+
+.app::after {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(199, 184, 255, 0.5) 0%, transparent 70%);
+    bottom: -150px;
+    right: -150px;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* Main Content Container */
+.main-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Error Message Styling */
+.error-message {
+    background: rgba(255, 107, 107, 0.1);
+    border: 2px solid rgba(255, 107, 107, 0.3);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) auto;
+    text-align: center;
+    max-width: 600px;
+}
+
+.error-message p {
+    color: #E74C3C;
+    font-weight: 500;
+    margin: 0 0 1rem;
+    font-size: 1rem;
+}
+
+.error-message button {
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-orange) 100%);
+    color: white;
+    border: none;
+    border-radius: var(--radius-xl);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.error-message button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 139, 123, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .app::before,
+    .app::after {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .app::before {
+        width: 200px;
+        height: 200px;
+        top: -50px;
+        left: -50px;
+    }
+    
+    .app::after {
+        width: 250px;
+        height: 250px;
+        bottom: -75px;
+        right: -75px;
+    }
+}

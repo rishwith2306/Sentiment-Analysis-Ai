@@ -1,0 +1,122 @@
+.agent-card {
+    background: rgba(0, 255, 136, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    animation: cardSlideIn 0.5s ease;
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.agent-card:hover {
+    background: rgba(0, 255, 136, 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 255, 136, 0.2);
+}
+
+.agent-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.agent-icon {
+    font-size: 2rem;
+}
+
+.agent-name {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.agent-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', monospace;
+}
+
+.agent-findings {
+    margin-top: 1.5rem;
+}
+
+.findings-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.findings-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.finding-item {
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    border-left: 2px solid var(--neon-green);
+    padding-left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .agent-card {
+        padding: 1.5rem;
+    }
+    
+    .agent-icon {
+        font-size: 1.5rem;
+    }
+    
+    .agent-name {
+        font-size: 1.125rem;
+    }
+    
+    .metric-value {
+        font-size: 1.25rem;
+    }
+}

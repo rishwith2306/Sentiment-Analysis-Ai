@@ -1,0 +1,135 @@
+.mood-ring {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mood-ring__svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
+}
+
+.mood-ring__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.mood-ring__score {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.mood-ring__emotion {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: capitalize;
+}
+
+/* Size variants */
+.mood-ring--sm {
+    width: 100px;
+    height: 100px;
+}
+
+.mood-ring--sm .mood-ring__score {
+    font-size: 1.5rem;
+}
+
+.mood-ring--sm .mood-ring__emotion {
+    font-size: 0.75rem;
+}
+
+.mood-ring--md {
+    width: 150px;
+    height: 150px;
+}
+
+.mood-ring--md .mood-ring__score {
+    font-size: 2rem;
+}
+
+.mood-ring--md .mood-ring__emotion {
+    font-size: 0.875rem;
+}
+
+.mood-ring--lg {
+    width: 200px;
+    height: 200px;
+}
+
+.mood-ring--lg .mood-ring__score {
+    font-size: 3rem;
+}
+
+.mood-ring--lg .mood-ring__emotion {
+    font-size: 1rem;
+}
+
+.mood-ring--xl {
+    width: 250px;
+    height: 250px;
+}
+
+.mood-ring--xl .mood-ring__score {
+    font-size: 4rem;
+}
+
+.mood-ring--xl .mood-ring__emotion {
+    font-size: 1.125rem;
+}
+
+/* Pulse animation on hover */
+.mood-ring:hover .mood-ring__svg {
+    animation: pulse-ring 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+    0%, 100% {
+        transform: rotate(-90deg) scale(1);
+    }
+    50% {
+        transform: rotate(-90deg) scale(1.05);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mood-ring--lg {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .mood-ring--lg .mood-ring__score {
+        font-size: 2.5rem;
+    }
+    
+    .mood-ring--lg .mood-ring__emotion {
+        font-size: 0.9375rem;
+    }
+    
+    .mood-ring--xl {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .mood-ring--xl .mood-ring__score {
+        font-size: 3rem;
+    }
+    
+    .mood-ring--xl .mood-ring__emotion {
+        font-size: 1rem;
+    }
+}
